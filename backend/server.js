@@ -18,8 +18,8 @@ await connectDB();
 app.use("/api/inngest", serve({ client: inngest, functions }));
 
 app.get("/", (req, res) => {
-    res.send("Server is running ....");
-});
+    res.send("Server is running.........");
+})
 
 app.listen(PORT, () => {
     console.log(`Server is running on Port ${PORT}`);
