@@ -17,7 +17,13 @@ app.use(cors());
     try {
         await connectDB();
 
-        app.use("/api/inngest", serve({ client: inngest, functions }));
+        //app.use("/api/inngest", serve({ client: inngest, functions }));
+
+        // ✅ Log every time Inngest endpoint is hit
+        app.use("/api/inngest", (req, res, next) => {
+            console.log("➡️ /api/inngest hit");
+            next();
+        }, serve({ client: inngest, functions }));
 
 
         app.get("/", (req, res) => {
